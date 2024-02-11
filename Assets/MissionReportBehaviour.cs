@@ -1,26 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class MissionReportBehaviour : MonoBehaviour
 {
-    public GameObject MainText;
-    public GameObject SubText;
-    void Start()
-    {
-        StartCoroutine(TextMoveTimer());
-    }
+    [SerializeField]
+    private RectTransform mainTextTransform;
+    [SerializeField]
+    private RectTransform subTextTransform;
+    [SerializeField]
+    private TextMeshProUGUI mainText;
+    [SerializeField]
+    private TextMeshProUGUI subText;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    IEnumerator TextMoveTimer()
-    {
-        yield return new WaitForSeconds(2);
-        MainText.transform.position = new Vector2(-190, 275);
-        SubText.transform.position = new Vector2(-240, 235);
-        Debug.Log("MoveStart");
-    }
+    //Method to subcribe to the current mission
+    //Method to handle the animations
 }
