@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0182cdc5df400e847a365880095e5293, type: 3}
   m_Name: FirstMission
   m_EditorClassIdentifier: 
-  missionName: Get to the beach
+  missionName: Enjoy the time
   description: The main character has to fo thiss
   subMissions:
   - Get the bike
