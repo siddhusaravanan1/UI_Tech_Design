@@ -6,6 +6,8 @@ using TMPro;
 public class MissionReportBehaviour : MonoBehaviour
 {
     [SerializeField]
+    private List<MissionSystem> missionSystem;
+    [SerializeField]
     private RectTransform mainTextTransform;
     [SerializeField]
     private RectTransform subTextTransform;
