@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int SkillCount = 0;
 
+    public GameObject MainPanel;
+    public GameObject StrenghtPanel;
+
     private void Start()
     {
         SkillCount = 1;
@@ -23,5 +26,15 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("No skill Point");
         }
+    }
+    public void StrenghtAccessMenu()
+    {
+        StrenghtPanel.SetActive(true);
+        MainPanel.SetActive(false);
+    }
+    public void BackToMainPanel()
+    {
+        StrenghtPanel.SetActive(false);
+        MainPanel.SetActive(true);
     }
 }
