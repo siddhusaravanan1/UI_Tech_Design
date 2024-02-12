@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HealthBarManager : MonoBehaviour
 {
-    [SerializeField]
     private Material healthBarMaterial;
 
     public float healthBarPercentage = 1f;
