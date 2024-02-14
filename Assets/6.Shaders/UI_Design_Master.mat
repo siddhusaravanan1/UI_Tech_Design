@@ -36,14 +36,15 @@ Material:
     - PixelSnap: 0
     - _Arc: 1.6
     - _BarRotation: 111.9193
+    - _EmptyBarOpacity: 0.0025
     - _EnableExternalAlpha: 0
-    - _Fill: 1.04
+    - _Fill: 1
     - _Padding: 2.31
     - _Radius: 1.55
     m_Colors:
     - _Color: {r: 0, g: 0.6666667, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _MaxColor: {r: 0, g: 0.6, b: 1, a: 1}
-    - _MinColor: {r: 1, g: 0.2, b: 0, a: 1}
+    - _MaxColor: {r: 0, g: 0.6666667, b: 1, a: 1}
+    - _MinColor: {r: 1, g: 0.03137255, b: 0, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

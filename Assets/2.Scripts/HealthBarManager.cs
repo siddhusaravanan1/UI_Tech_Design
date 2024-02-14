@@ -16,6 +16,7 @@ public class HealthBarManager : MonoBehaviour
     private float radialArc = 1.6f;
     private float radialRotation = 111.9193f;
     private float padding = 2.31f;
+    private float emptyBarOpacity = 0.0025f;
 
     private readonly string healthBar = "_Fill";
     private readonly string healthBarColorDirective = "_Color";
@@ -25,6 +26,8 @@ public class HealthBarManager : MonoBehaviour
     private readonly string radialArcDirective = "_Arc";
     private readonly string radialRotationDirective = "_Rotation";
     private readonly string paddingDirective = "_Padding";
+    private readonly string emptyBarOpacityDirective = "_EmptyBarOpacity";
+
 
     void Start()
     {
@@ -35,6 +38,8 @@ public class HealthBarManager : MonoBehaviour
         healthBarMaterial.SetFloat(paddingDirective, padding);
         healthBarMaterial.SetColor(healthBarMaxColorDirective, healthBarMaxColor);
         healthBarMaterial.SetColor(healthBarMinColorDirective, healthBarMinColor);
+        healthBarMaterial.SetFloat(emptyBarOpacityDirective, emptyBarOpacity);
+
     }
 
     void Update()

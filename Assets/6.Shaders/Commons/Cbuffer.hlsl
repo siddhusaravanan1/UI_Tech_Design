@@ -12,6 +12,7 @@ CBUFFER_START(UnityPerMaterial)
     half _Arc;
     half _BarRotation;
     half _Padding;
+    half _EmptyBarOpacity;
 CBUFFER_END
 
 

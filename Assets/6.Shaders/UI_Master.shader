@@ -9,7 +9,8 @@ Shader "UI_Design/Master"
         _Radius ("Bar Radius", Range(0,5)) = 2
         _Arc ("Max Radial Arc", float) =  10
         _BarRotation ("Radial Rotation", float) = 0
-        _Padding ("Padding", float) = 1  
+        _Padding ("Padding", float) = 1
+        _EmptyBarOpacity ("Empty Bar Opacity", Range(0, 0.1)) = 0.0025
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
         [HideInInspector] _Color ("Tint", Color) = (1,1,1,1)
@@ -101,7 +102,7 @@ Shader "UI_Design/Master"
             float4 UnlitFragment(Varyings i) : SV_Target
             {
                 float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
-                half4 colour = RadialHealthBar(i.radialUV, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding, mainTex.a, 0.0025h);
+                half4 colour = RadialHealthBar(i.radialUV, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding, mainTex.a, _EmptyBarOpacity);
 
                 return colour;
             }
@@ -180,7 +181,7 @@ Shader "UI_Design/Master"
             float4 UnlitFragment(Varyings i) : SV_Target
             {
                 float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
-                half4 colour = RadialHealthBar(i.radialUV, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding, mainTex.a, 0.0025h);
+                half4 colour = RadialHealthBar(i.radialUV, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding, mainTex.a, _EmptyBarOpacity);
 
                 return colour;
             }
