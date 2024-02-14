@@ -4,11 +4,11 @@ Shader "UI_Design/Master"
     {
         _MainTex ("Sprite Texture", 2D) = "white" {}
         _Fill ("Health", Range(0,1)) = 1
-        _MaxColor ("Tint", Color) = (1,1,1,1)
-        _MinColor ("Tint", Color) = (0,0,0,1)
+        _MaxColor ("Full Health", Color) = (1,1,1,1)
+        _MinColor ("Low Health", Color) = (0,0,0,1)
         _Radius ("Bar Radius", Range(0,5)) = 2
-        _Arc ("Radial Arc", float) =  10
-        _BarRotation ("Bar Rotation", float) = 0
+        _Arc ("Max Radial Arc", float) =  10
+        _BarRotation ("Radial Rotation", float) = 0
         _Padding ("Padding", float) = 1  
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
@@ -83,11 +83,13 @@ Shader "UI_Design/Master"
                 return o;
             }
 
+
             half4 UnlitFragment(Varyings i) : SV_Target
             {
                 float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
 
-                half4 colour = RadialHealthBar(i.uv, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _BarRotation, _Padding);
+                half4 colour = RadialHealthBar(i.uv, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding);
+
                 return colour;
             }
             ENDHLSL
@@ -134,25 +136,34 @@ Shader "UI_Design/Master"
             TEXTURE2D(_MainTex);
             SAMPLER(sampler_MainTex);
 
-            Varyings UnlitVertex(Attributes attributes)
+            Varyings UnlitVertex(Attributes v)
             {
                 Varyings o = (Varyings)0;
-                UNITY_SETUP_INSTANCE_ID(attributes);
+                UNITY_SETUP_INSTANCE_ID(v);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
-                o.positionCS = TransformObjectToHClip(attributes.positionOS);
+                o.positionCS = TransformObjectToHClip(v.positionOS);
                 #if defined(DEBUG_DISPLAY)
-                o.positionWS = TransformObjectToWorld(attributes.positionOS);
+                o.positionWS = TransformObjectToWorld(v.positionOS);
                 #endif
-                o.uv = TRANSFORM_TEX(attributes.uv, _MainTex);
-                o.color = attributes.color * _Color * _RendererColor;
+
+                // Radial Rotation with lower precision
+                half2 uvCentered = v.uv - half2(0.5, 0.5);
+                half sinVal = sin(_BarRotation);
+                half cosVal = cos(_BarRotation);
+                half2x2 rotationMatrix = half2x2(cosVal, -sinVal, sinVal, cosVal);
+                half2 rotatedUV = mul(uvCentered, rotationMatrix);
+                half2 finalUV = rotatedUV + half2(0.5, 0.5);
+                o.uv = TRANSFORM_TEX(finalUV, _MainTex);
+
+                o.color = v.color * _Color * _RendererColor;
                 return o;
             }
 
             float4 UnlitFragment(Varyings i) : SV_Target
             {
                 float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
-                half4 colour = RadialHealthBar(i.uv, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _BarRotation, _Padding);
+                half4 colour = RadialHealthBar(i.uv, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding);
 
                 return colour;
             }
