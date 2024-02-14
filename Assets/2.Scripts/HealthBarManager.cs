@@ -1,23 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthBarManager : MonoBehaviour
 {
     private Material healthBarMaterial;
 
+    [Range(0,1)]
     public float healthBarPercentage = 1f;
-    public Color healthBarMaxColor = Color.green;
-    public Color healthBarMinColor = Color.red;
+    public Color healthBarMaxColor = new(0f, 0.6f, 1f);
+    public Color healthBarMinColor = new(1.0f, 0.2f, 0f);
 
-    [SerializeField]
-    private float radius = 1f;
-    [SerializeField]
-    private float radialArc = 7f; // Assuming degrees, Unity uses degrees for rotation
-    [SerializeField]
-    private float radialRotation = 0f; // Assuming degrees
-    [SerializeField]
-    private float padding = 1f;
+    private float radius = 1.55f;
+    private float radialArc = 1.6f;
+    private float radialRotation = 111.9193f;
+    private float padding = 2.31f;
 
     private readonly string healthBar = "_Fill";
     private readonly string healthBarColorDirective = "_Color";
@@ -30,7 +28,7 @@ public class HealthBarManager : MonoBehaviour
 
     void Start()
     {
-        healthBarMaterial = GetComponent<SpriteRenderer>().material;
+        healthBarMaterial = GetComponent<RawImage>().material;
         healthBarMaterial.SetFloat(radiusDirective, radius);
         healthBarMaterial.SetFloat(radialArcDirective, radialArc);
         healthBarMaterial.SetFloat(radialRotationDirective, radialRotation);

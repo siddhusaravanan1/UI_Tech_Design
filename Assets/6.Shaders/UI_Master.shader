@@ -51,6 +51,7 @@ Shader "UI_Design/Master"
                 float3 positionOS   : POSITION;
                 float4 color        : COLOR;
                 float2 uv           : TEXCOORD0;
+                float2 radialUV           : TEXCOORD1;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
@@ -59,6 +60,7 @@ Shader "UI_Design/Master"
                 float4  positionCS  : SV_POSITION;
                 half4   color       : COLOR;
                 float2  uv          : TEXCOORD0;
+                float2 radialUV           : TEXCOORD1;
                 #if defined(DEBUG_DISPLAY)
                 float3  positionWS  : TEXCOORD2;
                 #endif
@@ -78,17 +80,28 @@ Shader "UI_Design/Master"
                 #if defined(DEBUG_DISPLAY)
                 o.positionWS = TransformObjectToWorld(v.positionOS);
                 #endif
+
+                // Radial Rotation with lower precision
+                half2 uvCentered = v.radialUV - half2(0.5, 0.5);
+                half sinVal = sin(_BarRotation);
+                half cosVal = cos(_BarRotation);
+                half2x2 rotationMatrix = half2x2(cosVal, -sinVal, sinVal, cosVal);
+                half2 rotatedUV = mul(uvCentered, rotationMatrix);
+                half2 finalUV = rotatedUV + half2(0.5, 0.5);
+                o.radialUV = finalUV;
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+
+
                 o.color = v.color * _Color * _RendererColor;
                 return o;
             }
 
 
-            half4 UnlitFragment(Varyings i) : SV_Target
+
+            float4 UnlitFragment(Varyings i) : SV_Target
             {
                 float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
-
-                half4 colour = RadialHealthBar(i.uv, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding);
+                half4 colour = RadialHealthBar(i.radialUV, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding, mainTex.a, 0.0025h);
 
                 return colour;
             }
@@ -113,21 +126,24 @@ Shader "UI_Design/Master"
 
             #pragma multi_compile_fragment _ DEBUG_DISPLAY
 
+
             struct Attributes
             {
                 float3 positionOS   : POSITION;
                 float4 color        : COLOR;
                 float2 uv           : TEXCOORD0;
+                float2 radialUV           : TEXCOORD1;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
             struct Varyings
             {
-                float4  positionCS      : SV_POSITION;
-                float4  color           : COLOR;
-                float2  uv              : TEXCOORD0;
+                float4  positionCS  : SV_POSITION;
+                half4   color       : COLOR;
+                float2  uv          : TEXCOORD0;
+                float2 radialUV           : TEXCOORD1;
                 #if defined(DEBUG_DISPLAY)
-                float3  positionWS      : TEXCOORD2;
+                float3  positionWS  : TEXCOORD2;
                 #endif
                 UNITY_VERTEX_OUTPUT_STEREO
             };
@@ -148,13 +164,14 @@ Shader "UI_Design/Master"
                 #endif
 
                 // Radial Rotation with lower precision
-                half2 uvCentered = v.uv - half2(0.5, 0.5);
+                half2 uvCentered = v.radialUV - half2(0.5, 0.5);
                 half sinVal = sin(_BarRotation);
                 half cosVal = cos(_BarRotation);
                 half2x2 rotationMatrix = half2x2(cosVal, -sinVal, sinVal, cosVal);
                 half2 rotatedUV = mul(uvCentered, rotationMatrix);
                 half2 finalUV = rotatedUV + half2(0.5, 0.5);
-                o.uv = TRANSFORM_TEX(finalUV, _MainTex);
+                o.radialUV = finalUV;
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 
                 o.color = v.color * _Color * _RendererColor;
                 return o;
@@ -163,7 +180,7 @@ Shader "UI_Design/Master"
             float4 UnlitFragment(Varyings i) : SV_Target
             {
                 float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
-                half4 colour = RadialHealthBar(i.uv, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding);
+                half4 colour = RadialHealthBar(i.radialUV, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding, mainTex.a, 0.0025h);
 
                 return colour;
             }

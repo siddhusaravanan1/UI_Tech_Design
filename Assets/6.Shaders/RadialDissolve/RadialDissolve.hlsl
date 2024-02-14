@@ -4,11 +4,12 @@ float4 RadialHealthBar(float2 uvs,
                        float arc,         
                        float3 maxHealthColor, 
                        float3 minHealthColor,
-                       float padding)     
+                       float padding,
+                       float mask,
+                       float maskOpacity)     // Added mask parameter for alpha control
                        : SV_Target
 {
     float2 centeredUV = uvs * 2.0 - 1.0;
-
     float angle = atan2(centeredUV.y, centeredUV.x);
 
     // Normalize angle to [0, 2*PI]
@@ -30,6 +31,9 @@ float4 RadialHealthBar(float2 uvs,
     // Lerp color based on health
     float3 color = lerp(minHealthColor, maxHealthColor, health);
 
-    // Return color with alpha based on inArc condition
-    return float4(inArc ? color : float3(0,0,0), inArc ? 1.0 : 0.0);
+    // Use mask for alpha. If inArc is true, use mask value; otherwise, make it fully transparent.
+    float alpha = inArc ? mask : lerp(0, maskOpacity, mask);
+
+    // Return color with alpha based on inArc condition and mask
+    return float4(color, alpha);
 }
