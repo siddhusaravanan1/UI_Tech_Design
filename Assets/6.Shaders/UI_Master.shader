@@ -4,12 +4,13 @@ Shader "UI_Design/Master"
     {
         _MainTex ("Sprite Texture", 2D) = "white" {}
         _Fill ("Health", Range(0,1)) = 1
-        _MaxColor ("Tint", Color) = (1,1,1,1)
-        _MinColor ("Tint", Color) = (0,0,0,1)
+        _MaxColor ("Full Health", Color) = (1,1,1,1)
+        _MinColor ("Low Health", Color) = (0,0,0,1)
         _Radius ("Bar Radius", Range(0,5)) = 2
-        _Arc ("Radial Arc", float) =  10
-        _BarRotation ("Bar Rotation", float) = 0
-        _Padding ("Padding", float) = 1  
+        _Arc ("Max Radial Arc", float) =  10
+        _BarRotation ("Radial Rotation", float) = 0
+        _Padding ("Padding", float) = 1
+        _EmptyBarOpacity ("Empty Bar Opacity", Range(0, 0.1)) = 0.0025
 
         // Legacy properties. They're here so that materials using this shader can gracefully fallback to the legacy sprite shader.
         [HideInInspector] _Color ("Tint", Color) = (1,1,1,1)
@@ -51,6 +52,7 @@ Shader "UI_Design/Master"
                 float3 positionOS   : POSITION;
                 float4 color        : COLOR;
                 float2 uv           : TEXCOORD0;
+                float2 radialUV           : TEXCOORD1;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
@@ -59,6 +61,7 @@ Shader "UI_Design/Master"
                 float4  positionCS  : SV_POSITION;
                 half4   color       : COLOR;
                 float2  uv          : TEXCOORD0;
+                float2 radialUV           : TEXCOORD1;
                 #if defined(DEBUG_DISPLAY)
                 float3  positionWS  : TEXCOORD2;
                 #endif
@@ -78,16 +81,29 @@ Shader "UI_Design/Master"
                 #if defined(DEBUG_DISPLAY)
                 o.positionWS = TransformObjectToWorld(v.positionOS);
                 #endif
+
+                // Radial Rotation with lower precision
+                half2 uvCentered = v.radialUV - half2(0.5, 0.5);
+                half sinVal = sin(_BarRotation);
+                half cosVal = cos(_BarRotation);
+                half2x2 rotationMatrix = half2x2(cosVal, -sinVal, sinVal, cosVal);
+                half2 rotatedUV = mul(uvCentered, rotationMatrix);
+                half2 finalUV = rotatedUV + half2(0.5, 0.5);
+                o.radialUV = finalUV;
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+
+
                 o.color = v.color * _Color * _RendererColor;
                 return o;
             }
 
-            half4 UnlitFragment(Varyings i) : SV_Target
+
+
+            float4 UnlitFragment(Varyings i) : SV_Target
             {
                 float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
+                half4 colour = RadialHealthBar(i.radialUV, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding, mainTex.a, _EmptyBarOpacity);
 
-                half4 colour = RadialHealthBar(i.uv, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _BarRotation, _Padding);
                 return colour;
             }
             ENDHLSL
@@ -111,21 +127,24 @@ Shader "UI_Design/Master"
 
             #pragma multi_compile_fragment _ DEBUG_DISPLAY
 
+
             struct Attributes
             {
                 float3 positionOS   : POSITION;
                 float4 color        : COLOR;
                 float2 uv           : TEXCOORD0;
+                float2 radialUV           : TEXCOORD1;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
             struct Varyings
             {
-                float4  positionCS      : SV_POSITION;
-                float4  color           : COLOR;
-                float2  uv              : TEXCOORD0;
+                float4  positionCS  : SV_POSITION;
+                half4   color       : COLOR;
+                float2  uv          : TEXCOORD0;
+                float2 radialUV           : TEXCOORD1;
                 #if defined(DEBUG_DISPLAY)
-                float3  positionWS      : TEXCOORD2;
+                float3  positionWS  : TEXCOORD2;
                 #endif
                 UNITY_VERTEX_OUTPUT_STEREO
             };
@@ -134,25 +153,35 @@ Shader "UI_Design/Master"
             TEXTURE2D(_MainTex);
             SAMPLER(sampler_MainTex);
 
-            Varyings UnlitVertex(Attributes attributes)
+            Varyings UnlitVertex(Attributes v)
             {
                 Varyings o = (Varyings)0;
-                UNITY_SETUP_INSTANCE_ID(attributes);
+                UNITY_SETUP_INSTANCE_ID(v);
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
-                o.positionCS = TransformObjectToHClip(attributes.positionOS);
+                o.positionCS = TransformObjectToHClip(v.positionOS);
                 #if defined(DEBUG_DISPLAY)
-                o.positionWS = TransformObjectToWorld(attributes.positionOS);
+                o.positionWS = TransformObjectToWorld(v.positionOS);
                 #endif
-                o.uv = TRANSFORM_TEX(attributes.uv, _MainTex);
-                o.color = attributes.color * _Color * _RendererColor;
+
+                // Radial Rotation with lower precision
+                half2 uvCentered = v.radialUV - half2(0.5, 0.5);
+                half sinVal = sin(_BarRotation);
+                half cosVal = cos(_BarRotation);
+                half2x2 rotationMatrix = half2x2(cosVal, -sinVal, sinVal, cosVal);
+                half2 rotatedUV = mul(uvCentered, rotationMatrix);
+                half2 finalUV = rotatedUV + half2(0.5, 0.5);
+                o.radialUV = finalUV;
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+
+                o.color = v.color * _Color * _RendererColor;
                 return o;
             }
 
             float4 UnlitFragment(Varyings i) : SV_Target
             {
                 float4 mainTex = i.color * SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv);
-                half4 colour = RadialHealthBar(i.uv, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _BarRotation, _Padding);
+                half4 colour = RadialHealthBar(i.radialUV, _Fill,_Radius, _Arc, _MaxColor, _MinColor, _Padding, mainTex.a, _EmptyBarOpacity);
 
                 return colour;
             }
