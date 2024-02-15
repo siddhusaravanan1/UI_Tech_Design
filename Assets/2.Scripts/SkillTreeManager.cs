@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class SkillTreeManager : MonoBehaviour
 {
     [SerializeField]
     private int SkillCount = 0;
 
     public GameObject MainPanel;
     public GameObject StrenghtPanel;
+    public GameObject TenacityPanel;
+    public GameObject VigorPanel;
 
     private void Start()
     {
@@ -32,9 +34,21 @@ public class GameManager : MonoBehaviour
         StrenghtPanel.SetActive(true);
         MainPanel.SetActive(false);
     }
+    public void TenacityAccessMenu()
+    {
+        TenacityPanel.SetActive(true);
+        MainPanel.SetActive(false);
+    }
+    public void VigorAccessMenu()
+    {
+        VigorPanel.SetActive(true);
+        MainPanel.SetActive(false);
+    }
     public void BackToMainPanel()
     {
         StrenghtPanel.SetActive(false);
+        TenacityPanel.SetActive(false);
+        VigorPanel.SetActive(false);
         MainPanel.SetActive(true);
     }
 }
