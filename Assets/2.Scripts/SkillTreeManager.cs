@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public class SkillTreeManager : MonoBehaviour
 {
     [SerializeField]
@@ -17,6 +18,7 @@ public class SkillTreeManager : MonoBehaviour
     {
         SkillCount = 1;
     }
+
     public void OnPointerClick()
     {
         if(SkillCount != 0)
