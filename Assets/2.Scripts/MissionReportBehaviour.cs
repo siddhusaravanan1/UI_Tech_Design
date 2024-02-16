@@ -17,6 +17,8 @@ public class MissionReportBehaviour : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI subText;
 
+    public GameObject weaponWheelPanel;
+
     int subTextIndex = 0;
     int mainTextIndex = 0;
     //Method to subcribe to the current mission
@@ -37,6 +39,14 @@ public class MissionReportBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             SceneManager.LoadScene("SkillTree");
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            weaponWheelPanel.gameObject.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            weaponWheelPanel.gameObject.SetActive(false);
         }
     }
     void NextKey()
