@@ -66,4 +66,8 @@ public class MissionReportBehaviour : MonoBehaviour
             Debug.Log("End of List");
         }
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
