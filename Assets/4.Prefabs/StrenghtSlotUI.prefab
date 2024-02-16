@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 4950929382012698389}
   - component: {fileID: 1070111674687689215}
   - component: {fileID: 460747347457165579}
-  - component: {fileID: 2661913504467577028}
   m_Layer: 5
   m_Name: StrenghtSlotUI
   m_TagString: Untagged
@@ -227,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6113947b4bb8240b7122ffda846074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill: {fileID: 0}
+  skillTreeManager: {fileID: 0}
 --- !u!114 &460747347457165579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +271,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SkillPointManager, Assembly-CSharp
+        m_MethodName: FirstUnlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1070111674687689215}
         m_TargetAssemblyTypeName: SkillMechanics, Assembly-CSharp
         m_MethodName: OnPointerClick
@@ -284,22 +295,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2661913504467577028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4345835597703070504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1836c603761731b4da6af7754dd49546, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillName: Skill1
-  dependencies:
-  - {fileID: 0}
-  unlocked: 1
 --- !u!1 &5583193811514119382
 GameObject:
   m_ObjectHideFlags: 0

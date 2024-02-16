@@ -2,33 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SkillTreeManager : MonoBehaviour
 {
-    [SerializeField]
-    private int SkillCount = 0;
+    public int skillCount;
 
     public GameObject MainPanel;
     public GameObject StrenghtPanel;
     public GameObject TenacityPanel;
     public GameObject VigorPanel;
 
-    private void Start()
-    {
-        SkillCount = 1;
-    }
+    public TextMeshProUGUI skillCountText;
 
-    public void OnPointerClick()
+    private void Update()
     {
-        if(SkillCount != 0)
+        skillCountText.text = "Skill count = " + skillCount;
+
+        if(Input.GetKey(KeyCode.S))
         {
-            Debug.Log("Strenght Increased");
-            SkillCount--;
-        }
-        else
-        {
-            Debug.Log("No skill Point");
+            skillCount = 10;
         }
     }
     public void StrenghtAccessMenu()
@@ -52,5 +46,9 @@ public class SkillTreeManager : MonoBehaviour
         TenacityPanel.SetActive(false);
         VigorPanel.SetActive(false);
         MainPanel.SetActive(true);
+    }
+    public void BackToGameScene()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }

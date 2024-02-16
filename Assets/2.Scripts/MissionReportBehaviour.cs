@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MissionReportBehaviour : MonoBehaviour
 {
@@ -29,10 +30,13 @@ public class MissionReportBehaviour : MonoBehaviour
     }
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.M))
         {
             NextKey();
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SceneManager.LoadScene("SkillTree");
         }
     }
     void NextKey()
