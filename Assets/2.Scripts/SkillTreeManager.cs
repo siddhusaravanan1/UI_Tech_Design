@@ -16,6 +16,7 @@ public class SkillTreeManager : MonoBehaviour
 
     public TextMeshProUGUI skillCountText;
 
+    public AudioSource mainSelectionSFX;
     private void Update()
     {
         skillCountText.text = "Skill count = " + skillCount;
@@ -29,16 +30,19 @@ public class SkillTreeManager : MonoBehaviour
     {
         StrenghtPanel.SetActive(true);
         MainPanel.SetActive(false);
+        mainSelectionSFX.Play();
     }
     public void TenacityAccessMenu()
     {
         TenacityPanel.SetActive(true);
         MainPanel.SetActive(false);
+        mainSelectionSFX.Play();
     }
     public void VigorAccessMenu()
     {
         VigorPanel.SetActive(true);
         MainPanel.SetActive(false);
+        mainSelectionSFX.Play();
     }
     public void BackToMainPanel()
     {
@@ -46,9 +50,11 @@ public class SkillTreeManager : MonoBehaviour
         TenacityPanel.SetActive(false);
         VigorPanel.SetActive(false);
         MainPanel.SetActive(true);
+        mainSelectionSFX.Play();
     }
     public void BackToGameScene()
     {
         SceneManager.LoadScene("GameScene");
+        mainSelectionSFX.Play();
     }
 }

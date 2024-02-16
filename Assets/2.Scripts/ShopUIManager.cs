@@ -34,7 +34,7 @@ public class ShopUIManager : MonoBehaviour
 
     public TextMeshProUGUI countText;
 
-
+    public AudioSource clickSFX;
 
     private void Update()
     {
@@ -45,31 +45,37 @@ public class ShopUIManager : MonoBehaviour
     {
         feature1Panel.SetActive(true);
         shopContainerPanel.SetActive(false);
+        clickSFX.Play();
     }
     public void Feature2PanelAccess()
     {
         feature2Panel.SetActive(true);
         shopContainerPanel.SetActive(false);
+        clickSFX.Play();
     }
     public void DailyShop1PanelAccess()
     {
         DailyShop1Panel.SetActive(true);
         shopContainerPanel.SetActive(false);
+        clickSFX.Play();
     }
     public void DailyShop2PanelAccess()
     {
         DailyShop2Panel.SetActive(true);
         shopContainerPanel.SetActive(false);
+        clickSFX.Play();
     }
     public void DailyShop3PanelAccess()
     {
         DailyShop3Panel.SetActive(true);
         shopContainerPanel.SetActive(false);
+        clickSFX.Play();
     }
     public void DailyShop4PanelAccess()
     {
         DailyShop4Panel.SetActive(true);
         shopContainerPanel.SetActive(false);
+        clickSFX.Play();
     }
     public void BackUI()
     {
@@ -81,15 +87,18 @@ public class ShopUIManager : MonoBehaviour
         DailyShop2Panel.SetActive(false);
         DailyShop3Panel.SetActive(false);
         DailyShop4Panel.SetActive(false);
+        clickSFX.Play();
     }
     public void AddCoins()
     {
         coinCount = 100;
         Debug.Log("Coins available = " + coinCount);
+        clickSFX.Play();
     }
     public void BackMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        clickSFX.Play();
     }
 
     public void buyFeatured1()
@@ -102,6 +111,7 @@ public class ShopUIManager : MonoBehaviour
             f1OwnedText.SetActive(true);
             coinCount -= 50;
             Debug.Log("Coins available = " + coinCount);
+            clickSFX.Play();
         }
         else
         {
@@ -118,6 +128,7 @@ public class ShopUIManager : MonoBehaviour
             f2OwnedText.SetActive(true);
             coinCount -= 50;
             Debug.Log("Coins available = " + coinCount);
+            clickSFX.Play();
         }
         else
         {
@@ -134,6 +145,7 @@ public class ShopUIManager : MonoBehaviour
             d1OwnedText.SetActive(true);
             coinCount -= 50;
             Debug.Log("Coins available = " + coinCount);
+            clickSFX.Play();
         }
         else
         {
@@ -150,6 +162,7 @@ public class ShopUIManager : MonoBehaviour
             d2OwnedText.SetActive(true);
             coinCount -= 50;
             Debug.Log("Coins available = " + coinCount);
+            clickSFX.Play();
         }
         else
         {
@@ -166,6 +179,7 @@ public class ShopUIManager : MonoBehaviour
             d3OwnedText.SetActive(true);
             coinCount -= 50;
             Debug.Log("Coins available = " + coinCount);
+            clickSFX.Play();
         }
         else
         {
@@ -182,6 +196,7 @@ public class ShopUIManager : MonoBehaviour
             d4OwnedText.SetActive(true);
             coinCount -= 50;
             Debug.Log("Coins available = " + coinCount);
+            clickSFX.Play();
         }
         else
         {

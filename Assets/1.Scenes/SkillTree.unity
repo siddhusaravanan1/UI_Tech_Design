@@ -186,6 +186,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
       objectReference: {fileID: 945048254}
@@ -496,6 +500,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -1060,6 +1068,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SkillMechanics, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -1812,6 +1824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &617427400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,6 +1987,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -2270,6 +2287,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -2573,6 +2594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &780499405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,6 +2910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &824271562 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4137390923039578643, guid: dd19d606ffd432e4b8ecbfc694791617, type: 3}
@@ -3257,6 +3280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 945048255}
   - component: {fileID: 945048254}
+  - component: {fileID: 945048256}
   m_Layer: 0
   m_Name: SkillTreeManager
   m_TagString: Untagged
@@ -3282,6 +3306,7 @@ MonoBehaviour:
   TenacityPanel: {fileID: 1458472225}
   VigorPanel: {fileID: 1874980101}
   skillCountText: {fileID: 1669233875}
+  mainSelectionSFX: {fileID: 2111108134}
 --- !u!4 &945048255
 Transform:
   m_ObjectHideFlags: 0
@@ -3297,6 +3322,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &945048256
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945048253}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2260806325940ff47bd02a348a3a61fb, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &953337713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3309,6 +3430,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -3603,6 +3728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1001 &963075848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3796,6 +3922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1019530259
 GameObject:
   m_ObjectHideFlags: 0
@@ -4117,6 +4244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1034153440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4137390923039578643, guid: dd19d606ffd432e4b8ecbfc694791617, type: 3}
@@ -4214,6 +4342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1001 &1046925324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4402,6 +4531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1001 &1050401246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4590,6 +4720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1075827096 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4137390923039578643, guid: dd19d606ffd432e4b8ecbfc694791617, type: 3}
@@ -4647,6 +4778,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -4969,6 +5104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1001 &1139621359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4981,6 +5117,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -5107,6 +5247,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SkillMechanics, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -5763,6 +5907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1230933775 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4137390923039578643, guid: dd19d606ffd432e4b8ecbfc694791617, type: 3}
@@ -5860,6 +6005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1001 &1234058732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5896,6 +6042,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SkillMechanics, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -6361,6 +6511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1001 &1301938799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6561,6 +6712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!224 &1358299506 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4294464359825946898, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
@@ -7105,6 +7257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1458472225
 GameObject:
   m_ObjectHideFlags: 0
@@ -7393,6 +7546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1538610632
 GameObject:
   m_ObjectHideFlags: 0
@@ -7662,6 +7816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1585749007 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3334829859346875860, guid: adbc475b152937242a99fbed9fd716a8, type: 3}
@@ -7747,6 +7902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1629297672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3334829859346875860, guid: adbc475b152937242a99fbed9fd716a8, type: 3}
@@ -7832,6 +7988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1633241564 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4137390923039578643, guid: dd19d606ffd432e4b8ecbfc694791617, type: 3}
@@ -7927,6 +8084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!224 &1660296252 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4294464359825946898, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
@@ -7966,6 +8124,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -8430,6 +8592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!224 &1762991324 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4294464359825946898, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
@@ -8499,6 +8662,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SkillMechanics, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -8678,6 +8845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1842937133
 GameObject:
   m_ObjectHideFlags: 0
@@ -8800,6 +8968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1001 &1872673405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8988,6 +9157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1874980101
 GameObject:
   m_ObjectHideFlags: 0
@@ -9189,6 +9359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &1942133831
 GameObject:
   m_ObjectHideFlags: 0
@@ -9541,6 +9712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1001 &2007715372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9553,6 +9725,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -9969,6 +10145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &2038410265 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4137390923039578643, guid: dd19d606ffd432e4b8ecbfc694791617, type: 3}
@@ -10162,6 +10339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1 &2050903678
 GameObject:
   m_ObjectHideFlags: 0
@@ -10307,6 +10485,134 @@ MonoBehaviour:
   seventhUnlockInt:
   - {fileID: 1219215472}
   - {fileID: 2025623858}
+--- !u!1 &2111108133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2111108135}
+  - component: {fileID: 2111108134}
+  m_Layer: 0
+  m_Name: SkillTreeMainSFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2111108134
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111108133}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 91683b4dd6738104fa1a6b23c90521e3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2111108135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111108133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1165.4694, y: 330.9854, z: 6.896037}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2115445911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10359,6 +10665,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -10584,6 +10894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!114 &2131133675 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 460747347457165579, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
@@ -10607,6 +10918,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 689142437}
+    - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
+      propertyPath: selectionSFX
+      value: 
+      objectReference: {fileID: 945048256}
     - target: {fileID: 1070111674687689215, guid: 178e8313dac098647a79712c32e0a03e, type: 3}
       propertyPath: skillTreeManager
       value: 
@@ -10911,6 +11226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillTreeManager: {fileID: 945048254}
+  selectionSFX: {fileID: 945048256}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -10919,3 +11235,4 @@ SceneRoots:
   - {fileID: 1565310166}
   - {fileID: 172414131}
   - {fileID: 945048255}
+  - {fileID: 2111108135}

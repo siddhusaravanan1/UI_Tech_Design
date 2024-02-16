@@ -8,6 +8,8 @@ public class SkillMechanics : MonoBehaviour
     Button SkillUI;
 
     public SkillTreeManager skillTreeManager;
+
+    public AudioSource selectionSFX;
     private void Start()
     {
         SkillUI = GetComponent<Button>();
@@ -19,6 +21,7 @@ public class SkillMechanics : MonoBehaviour
             SkillUI.interactable = false;
             Debug.Log("Skill = " + skillTreeManager.skillCount);
             skillTreeManager.skillCount -= 1;
+            selectionSFX.Play();
         }
         else
         {
