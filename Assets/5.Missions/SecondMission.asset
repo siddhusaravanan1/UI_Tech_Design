@@ -15,9 +15,9 @@ MonoBehaviour:
   missionName: Get to the beach
   description: The main character has to fo thiss
   subMissions:
-  - Get the bike
-  - Drive to the beach
-  - Find your friend
-  - Drink some coconut water
-  - Swim
+  - Order pina colada
+  - Drink it with sugar
+  - pay cash
+  - drive through beach
+  - Buy yacht
   isCompleted: 0

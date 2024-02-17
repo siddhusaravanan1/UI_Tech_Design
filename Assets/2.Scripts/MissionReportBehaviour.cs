@@ -25,6 +25,7 @@ public class MissionReportBehaviour : MonoBehaviour
     //Method to handle the animations
     private void Start()
     {
+        missionSystem[mainTextIndex].isCompleted = false;
         mainText.text = missionSystem[mainTextIndex].missionName;
         subText.text = missionSystem[mainTextIndex].subMissions[subTextIndex];
 
@@ -48,14 +49,20 @@ public class MissionReportBehaviour : MonoBehaviour
         {
             weaponWheelPanel.gameObject.SetActive(false);
         }
+
     }
     void NextKey()
     {
         DisplayNextKey();
+        if (missionSystem[mainTextIndex].isCompleted)
+        {
+            NextMission();
+        }
     }
+
     void DisplayNextKey()
     {
-        if (subTextIndex <= missionSystem[mainTextIndex].subMissions.Count)
+        if (subTextIndex < missionSystem[mainTextIndex].subMissions.Count)
         {
             Debug.Log(missionSystem[mainTextIndex].subMissions[subTextIndex]);
             subText.text = missionSystem[mainTextIndex].subMissions[subTextIndex];
@@ -64,7 +71,17 @@ public class MissionReportBehaviour : MonoBehaviour
         else
         {
             Debug.Log("End of List");
+            missionSystem[mainTextIndex].isCompleted = true;
         }
+    }
+    void NextMission()
+    {
+        mainTextIndex++;
+        missionSystem[mainTextIndex].isCompleted = false;
+        Debug.Log(mainTextIndex);
+        mainText.text = missionSystem[mainTextIndex].missionName;
+        subTextIndex = 0;
+        subText.text = missionSystem[mainTextIndex].subMissions[subTextIndex];
     }
     public void MainMenu()
     {

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0182cdc5df400e847a365880095e5293, type: 3}
   m_Name: ThirdMission
   m_EditorClassIdentifier: 
-  missionName: Get to the beach
+  missionName: Get out of the beach
   description: The main character has to fo thiss
   subMissions:
-  - Get the bike
-  - Drive to the beach
-  - Find your friend
-  - Drink some coconut water
-  - Swim
+  - take the yacht
+  - drive to seabay island
+  - 'meet your dealer '
+  - seal the deal
+  - Leave the island
   isCompleted: 0
