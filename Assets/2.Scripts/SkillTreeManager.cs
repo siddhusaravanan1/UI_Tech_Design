@@ -19,7 +19,7 @@ public class SkillTreeManager : MonoBehaviour
     public AudioSource mainSelectionSFX;
     private void Update()
     {
-        skillCountText.text = "Skill count = " + skillCount;
+        skillCountText.text = "Skill count: " + skillCount;
 
         if(Input.GetKey(KeyCode.S))
         {

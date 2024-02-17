@@ -38,7 +38,7 @@ public class ShopUIManager : MonoBehaviour
 
     private void Update()
     {
-        countText.text = "Count = " + coinCount;
+        countText.text = coinCount.ToString();
     }
 
     public void Feature1PanelAccess()
