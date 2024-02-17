@@ -17,7 +17,6 @@ public class HealthBarManager : MonoBehaviour
     private float radialRotation = 111.9193f;
     private float padding = 2.31f;
     private float emptyBarOpacity = 0.0025f;
-    private float lerpSpeed = 0.5f;
 
     private readonly string healthBar = "_Fill";
     private readonly string healthBarColorDirective = "_Color";
