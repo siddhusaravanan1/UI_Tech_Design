@@ -25,7 +25,9 @@ public class MissionReportBehaviour : MonoBehaviour
     //Method to handle the animations
     private void Start()
     {
-        missionSystem[mainTextIndex].isCompleted = false;
+        missionSystem[0].isCompleted = false;
+        missionSystem[1].isCompleted = false;
+        missionSystem[2].isCompleted = false;
         mainText.text = missionSystem[mainTextIndex].missionName;
         subText.text = missionSystem[mainTextIndex].subMissions[subTextIndex];
 
@@ -76,12 +78,20 @@ public class MissionReportBehaviour : MonoBehaviour
     }
     void NextMission()
     {
-        mainTextIndex++;
-        missionSystem[mainTextIndex].isCompleted = false;
-        Debug.Log(mainTextIndex);
-        mainText.text = missionSystem[mainTextIndex].missionName;
-        subTextIndex = 0;
-        subText.text = missionSystem[mainTextIndex].subMissions[subTextIndex];
+        if(!missionSystem[2].isCompleted)
+        {
+            mainTextIndex++;
+            missionSystem[mainTextIndex].isCompleted = false;
+            Debug.Log(mainTextIndex);
+            mainText.text = missionSystem[mainTextIndex].missionName;
+            subTextIndex = 0;
+            subText.text = missionSystem[mainTextIndex].subMissions[subTextIndex];
+        }
+        else
+        {
+            mainText.text = "Mission Completed";
+            subText.text = "Mission Completed";
+        }
     }
     public void MainMenu()
     {

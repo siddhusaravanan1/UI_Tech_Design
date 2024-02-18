@@ -1522,7 +1522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -281}
+  m_AnchoredPosition: {x: 19, y: -162}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &482671041
@@ -1580,7 +1580,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3624,13 +3624,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a23acd921fdede346951284163ac51c7, type: 2}
   - {fileID: 11400000, guid: e9d224bdf5b8e194dbccd06cd9c987b2, type: 2}
   - {fileID: 11400000, guid: c18a89db306a7564ebee57e4043f5223, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   mainTextTransform: {fileID: 324615778}
   subTextTransform: {fileID: 295908029}
   mainText: {fileID: 324615779}
@@ -5757,7 +5750,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 114145316}
   - {fileID: 1216118517}
+  - {fileID: 114145316}
   - {fileID: 1650497229}
   - {fileID: 1636269863}

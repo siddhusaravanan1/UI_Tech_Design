@@ -24,6 +24,6 @@ public class MainMenuBehaviour : MonoBehaviour
     public void ExitGame()
     {
         menuSelectionSFX.Play();
-        Debug.Log("Exit");
+        Application.Quit();
     }
 }
